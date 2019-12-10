@@ -2,9 +2,27 @@ baseURL = "https://runthem.org/"
 # 我的域名, 没有也没有访问, 是说明性实例, 可填可不填
 languageCode = "zh-CN"
 # 语言环境, 不然就是英文了
-title = "My Blog"
+title = "Blog"
 # 网站的名字
 paginate = 12
 # 每页12份文章, 翻页
 theme = "m10c"
 # 指定主题
+
+
+[params]
+	author = ""
+	avatar = "1.png"
+	description = "人生不断地重复两件事,其中之一就是做出选择!--iccy"	#描述
+	# customCSS = ["prism.css"]
+	# customJS = ["prism.js"]
+	pygmentsUseClasses = true
+
+[[params.social]]
+	name = "github"
+	url = "https://github.com/iccy-code"
+
+[[params.social]]
+	name = "mail"
+	# url = "mailto:iccy.fun@gmail.com"
+	url = "mailto:iccy.fun@outlook.com"
