@@ -8,7 +8,7 @@ tags: ["标签", "", ""]
 
 > 测试
 
-```c
+```python
 #include <stdio.h>
 
 int main(int argc, char* argv[]) {
