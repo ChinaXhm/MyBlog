@@ -12,17 +12,17 @@ theme = "m10c"
 
 [params]
 	author = ""
-	avatar = "1.png"
-	description = "人生不断地重复两件事,其中之一就是做出选择!--iccy"	#描述
+	avatar = "2.jpg"
+	description = "啊哈哈哈哈"	#描述
 	# customCSS = ["prism.css"]
 	# customJS = ["prism.js"]
 	pygmentsUseClasses = true
 
 [[params.social]]
 	name = "github"
-	url = "https://github.com/iccy-code"
+	url = "https://github.com/ChinaXhm"
 
 [[params.social]]
 	name = "mail"
 	# url = "mailto:iccy.fun@gmail.com"
-	url = "mailto:iccy.fun@outlook.com"
+	url = "mailto:2268234697@qq.com"
