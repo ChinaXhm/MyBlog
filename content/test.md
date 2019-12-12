@@ -6,12 +6,12 @@ tags: ["标签", "", ""]
 ---
 
 
-> 测试
+> 测试,是否修改
 
-```python
+```c
 #include <stdio.h>
 
-int main(int argc, char* argv[]) {
+int mainint argc, char* argv[]) {
 	printf("Hello World\n");
 	return 0;
 }
