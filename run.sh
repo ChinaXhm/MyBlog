@@ -3,6 +3,7 @@
 msg=":rocket: Deploying website `date '+%Y-%m-%d %H:%M:%S'`"
 
 # 先是将主目录文件提交上去, 方便两个人修改
+git add .
 git pull origin master
 git add .
 if [ $# -eq 1 ]
