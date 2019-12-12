@@ -6,8 +6,6 @@ tags: ["数据结构", "C", "Golang"]
 ---
 
 
-<<<<<<< HEAD
-=======
 > 测试
 
 ```c
@@ -18,4 +16,3 @@ int main(int argc, char* argv[]) {
 	return 0;
 }
 ```
->>>>>>> 3241ac5d62b7391cd2476dc0a79507e3168a6267
