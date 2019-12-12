@@ -6,13 +6,13 @@ tags: ["标签", "", ""]
 ---
 
 
-> 测试,是否修改
+> 测试
 
 ```c
 #include <stdio.h>
 
-int mainint argc, char* argv[]) {
-	printf("Hello World\n");
+int main(int argc, char* argv[]) {
+	printf("Hello Github\n");
 	return 0;
 }
 ```
