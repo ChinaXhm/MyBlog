@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>C on Blog</title>
-    <link>https://ChinaXhm.github.io/tags/c/</link>
+    <link>https://runthem.org/tags/c/</link>
     <description>Recent content in C on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Tue, 10 Dec 2019 13:15:24 +0800</lastBuildDate>
     
-	<atom:link href="https://ChinaXhm.github.io/tags/c/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://runthem.org/tags/c/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Data Structure</title>
-      <link>https://ChinaXhm.github.io/test/</link>
+      <link>https://runthem.org/test/</link>
       <pubDate>Tue, 10 Dec 2019 13:15:24 +0800</pubDate>
       
-      <guid>https://ChinaXhm.github.io/test/</guid>
+      <guid>https://runthem.org/test/</guid>
       <description> 测试
  #include &amp;lt;stdio.h&amp;gt;int main(int argc, char* argv[]) {printf(&amp;#34;Hello Github\n&amp;#34;);return 0;}</description>
     </item>
