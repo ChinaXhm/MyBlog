@@ -3,52 +3,57 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://runthem.org/abcd/</loc>
+    <loc>https://ChinaXhm.github.io/</loc>
+    <lastmod>2019-12-13T23:05:56+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ChinaXhm.github.io/list/</loc>
+    <lastmod>2019-12-13T23:05:56+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ChinaXhm.github.io/tags/</loc>
+    <lastmod>2019-12-13T23:05:56+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ChinaXhm.github.io/tags/%E6%A0%87%E7%AD%BE/</loc>
+    <lastmod>2019-12-13T23:05:56+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ChinaXhm.github.io/abcd/</loc>
     <lastmod>2019-12-12T23:59:41+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://runthem.org/</loc>
-    <lastmod>2019-12-12T23:59:41+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://runthem.org/tags/</loc>
-    <lastmod>2019-12-12T23:59:41+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://runthem.org/tags/%E6%A0%87%E7%AD%BE/</loc>
-    <lastmod>2019-12-12T23:59:41+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://runthem.org/array/</loc>
+    <loc>https://ChinaXhm.github.io/array/</loc>
     <lastmod>2019-12-12T21:26:24+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://runthem.org/tags/c/</loc>
+    <loc>https://ChinaXhm.github.io/tags/c/</loc>
     <lastmod>2019-12-10T13:15:24+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://runthem.org/test/</loc>
+    <loc>https://ChinaXhm.github.io/test/</loc>
     <lastmod>2019-12-10T13:15:24+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://runthem.org/tags/golang/</loc>
+    <loc>https://ChinaXhm.github.io/tags/golang/</loc>
     <lastmod>2019-12-10T13:15:24+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://runthem.org/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
+    <loc>https://ChinaXhm.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
     <lastmod>2019-12-10T13:15:24+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://runthem.org/categories/</loc>
+    <loc>https://ChinaXhm.github.io/categories/</loc>
   </url>
   
 </urlset>

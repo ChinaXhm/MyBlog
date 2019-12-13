@@ -2,48 +2,48 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Blog</title>
-    <link>https://runthem.org/tags/</link>
+    <link>https://ChinaXhm.github.io/tags/</link>
     <description>Recent content in Tags on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 12 Dec 2019 23:59:41 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 13 Dec 2019 23:05:56 +0800</lastBuildDate>
     
-	<atom:link href="https://runthem.org/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ChinaXhm.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>标签</title>
-      <link>https://runthem.org/tags/%E6%A0%87%E7%AD%BE/</link>
-      <pubDate>Thu, 12 Dec 2019 23:59:41 +0800</pubDate>
+      <link>https://ChinaXhm.github.io/tags/%E6%A0%87%E7%AD%BE/</link>
+      <pubDate>Fri, 13 Dec 2019 23:05:56 +0800</pubDate>
       
-      <guid>https://runthem.org/tags/%E6%A0%87%E7%AD%BE/</guid>
+      <guid>https://ChinaXhm.github.io/tags/%E6%A0%87%E7%AD%BE/</guid>
       <description></description>
     </item>
     
     <item>
       <title>C</title>
-      <link>https://runthem.org/tags/c/</link>
+      <link>https://ChinaXhm.github.io/tags/c/</link>
       <pubDate>Tue, 10 Dec 2019 13:15:24 +0800</pubDate>
       
-      <guid>https://runthem.org/tags/c/</guid>
+      <guid>https://ChinaXhm.github.io/tags/c/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Golang</title>
-      <link>https://runthem.org/tags/golang/</link>
+      <link>https://ChinaXhm.github.io/tags/golang/</link>
       <pubDate>Tue, 10 Dec 2019 13:15:24 +0800</pubDate>
       
-      <guid>https://runthem.org/tags/golang/</guid>
+      <guid>https://ChinaXhm.github.io/tags/golang/</guid>
       <description></description>
     </item>
     
     <item>
       <title>数据结构</title>
-      <link>https://runthem.org/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+      <link>https://ChinaXhm.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
       <pubDate>Tue, 10 Dec 2019 13:15:24 +0800</pubDate>
       
-      <guid>https://runthem.org/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
+      <guid>https://ChinaXhm.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
       <description></description>
     </item>
     
