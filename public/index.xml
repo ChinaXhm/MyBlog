@@ -17,7 +17,7 @@
       <pubDate>Fri, 13 Dec 2019 23:05:56 +0800</pubDate>
       
       <guid>https://ChinaXhm.github.io/list/</guid>
-      <description>链表(C语言) 1.节点定义 typedef int datatype;typedef struct node{node *next;datatype data;}N;//起别名2.初始化链表 N *creatlist()//采用尾插法建表;{N *head=(* N)malloc(sizeof(N)),*p=NULL;//定义头节点 if(head){printf(&amp;#34;动态申请内存失败\n&amp;#34;);}else{int n=0;head-&amp;gt;next=NULL;p=head-&amp;gt;next;printf(&amp;#34;请输入节点数:&amp;#34;);scanf(&amp;#34;%d&amp;#34;,&amp;amp;n);while(n){ N n=(* N)malloc(sizeof(N));n-&amp;gt;next=NULL;p-&amp;gt;next=n;p=n; }}}3.输出链表 void output(N *head){int i=0;N *a=headif(head==NULL){printf(&amp;#34;链表头有误\n&amp;#34;);}while(a-&amp;gt;next!=NULL){i++;a=a-&amp;gt;next;printf(&amp;#34;%d个元素的值为%d&amp;#34;,i,a-&amp;gt;next);}}</description>
+      <description>链表(C语言) 1.节点定义 typedef char datatype;typedef struct node{node *next;datatype data;}N;//起别名2.初始化链表 N *creatlist(){N *head,*p;head=(N *)malloc(sizeof(N));if(head==NULL){printf(&amp;#34;动态内存分配失败&amp;#34;);return 0;}else{//采用尾插法建表 	int n,i;p=head;printf(&amp;#34;请输入节点个数:&amp;#34;);scanf(&amp;#34;%d&amp;#34;,&amp;amp;n);for(i=0;i&amp;lt;n;i++){N *node=(N *)malloc(sizeof(N));node-&amp;gt;next=NULL;printf(&amp;#34;请输入%d个节点的值:&amp;#34;,i);getchar() ;node-&amp;gt;data=getchar();p-&amp;gt;next=node;p=node;}}return head;}3.输出链表 if(head-&amp;gt;next!=NULL){printf(&amp;#34;输出结果为&amp;#34;);N *a=head-&amp;gt;next;	while(a!=NULL) {printf(&amp;#34;%c &amp;#34;,a-&amp;gt;data);a=a-&amp;gt;next;}}else{printf(&amp;#34;空表\n&amp;#34;);}</description>
     </item>
     
     <item>
@@ -48,7 +48,7 @@
       
       <guid>https://ChinaXhm.github.io/test/</guid>
       <description> 测试
- #include &amp;lt;stdio.h&amp;gt; int main(int argc, char* argv[]) { printf(&amp;#34;Hello Github\n&amp;#34;); return 0; } </description>
+ #include &amp;lt;stdio.h&amp;gt;int main(int argc, char* argv[]) {printf(&amp;#34;Hello Github\n&amp;#34;);return 0;}</description>
     </item>
     
   </channel>
