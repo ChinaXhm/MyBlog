@@ -8,7 +8,7 @@ tags: ["标签", "", ""]
 # 链表(C语言)
 ## 1.节点定义
 ```c
-typedef int datatype;
+typedef char datatype;
 typedef struct node
 {
     node *next;
@@ -17,48 +17,49 @@ typedef struct node
 ```
 ## 2.初始化链表
 ```c
-    N *creatlist()//采用尾插法建表;
-    {
-        N *head=(* N)malloc(sizeof(N)),*p=NULL;//定义头节点
-        if(head)
-        {
-            printf("动态申请内存失败\n");
-        }
-        else
-        {
-            int n=0;
-            head->next=NULL;
-            p=head->next;
-            printf("请输入节点数:");
-            scanf("%d",&n);
-            while(n)
-            {   
-                N n=(* N)malloc(sizeof(N));
-                n->next=NULL;
-                p->next=n;
-                p=n;         
-            }
-
-        }
-
-    }
+  N *creatlist()
+{
+	N *head,*p;
+	head=(N *)malloc(sizeof(N));
+	if(head==NULL)
+	{
+		printf("动态内存分配失败");
+		return 0;
+	}
+	else
+	{//采用尾插法建表 
+		int n,i;
+		p=head;
+		printf("请输入节点个数:");
+		scanf("%d",&n);
+		for(i=0;i<n;i++)
+		{
+			N *node=(N *)malloc(sizeof(N));
+			node->next=NULL;
+			printf("请输入%d个节点的值:",i);
+			getchar() ;
+			node->data=getchar();
+			p->next=node;
+			p=node;
+		}
+	}
+	return head;
+}
 ```
 ## 3.输出链表
 ```c
-    void output(N *head)
-    {
-        int i=0;
-        N *a=head
-        if(head==NULL)
-        {
-            printf("链表头有误\n");
-        }
-        while(a->next!=NULL)
-        {
-            i++;
-            a=a->next;
-            printf("%d个元素的值为%d",i,a->next);
-        }
-    }
-
+ 	if(head->next!=NULL)
+	{
+		printf("输出结果为");
+		N *a=head->next;	
+		while(a!=NULL) 
+		{
+			printf("%c  ",a->data);
+			a=a->next;
+		}
+	}
+	else
+	{
+		printf("空表\n");
+	}
 ```
