@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-CN">
   <head>
-    <title>数组的用法 // Blog</title>
+    <title>Array // Blog</title>
     <meta charset="utf-8" />
     <meta name="generator" content="Hugo 0.60.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,15 +11,15 @@
 
     
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="数组的用法"/>
-<meta name="twitter:description" content="记录一下数据结构的操作, 分为两个版本  数组是最基本的数据结构, 基本上所有的编程语言都自带数组的使用, 数组是线性表的顺序存储结构, 线性表是逻辑上的, 顺序存储是物理上的, 数组使用起来很方便, 有它的优点, 但是也有它的缺点, 优点是可以根据下标得到和删除元素, 但是很难插入元素,
+<meta name="twitter:title" content="Array"/>
+<meta name="twitter:description" content="记录一下数据结构的操作, 分为两个版本  数组是最基本的数据结构, 基本上所有的编程语言都自带数组的使用, 数组是线性表的顺序存储结构, 线性表是逻辑上的, 顺序存储是物理上的, 数组使用起来很方便, 有它的优点, 但是也有它的缺点, 优点是可以根据下标得到和删除元素, 但是很难插入元素
  C语言版本  增加(插入)
  1.在数组末尾添加元素
   int add(int nums[],int *numsSize,int value)//直接放在数组最后面 { nums[*numsSize]=value; *numsSize&#43;=1; return *numsSize; }   2.在数组某位置(下标位置)添加
   int insert(int nums[],int *numsSize,int index,int value)//指定插入下标位置 { int i=0; if(index&lt;0||index&gt;*numsSize) { return 0; } for(i=*numsSize;i&gt;=index;i--)//首先index 值后的元素全部后移，从最后一个元素开始 	//然后index位置插入值; 	{ nums[i&#43;1]=nums[i]; } nums[index]=value; *numsSize&#43;=1;//*numsSize&#43;&#43;,自加一优先级比*高 	return 1; }  "/>
 
-    <meta property="og:title" content="数组的用法" />
-<meta property="og:description" content="记录一下数据结构的操作, 分为两个版本  数组是最基本的数据结构, 基本上所有的编程语言都自带数组的使用, 数组是线性表的顺序存储结构, 线性表是逻辑上的, 顺序存储是物理上的, 数组使用起来很方便, 有它的优点, 但是也有它的缺点, 优点是可以根据下标得到和删除元素, 但是很难插入元素,
+    <meta property="og:title" content="Array" />
+<meta property="og:description" content="记录一下数据结构的操作, 分为两个版本  数组是最基本的数据结构, 基本上所有的编程语言都自带数组的使用, 数组是线性表的顺序存储结构, 线性表是逻辑上的, 顺序存储是物理上的, 数组使用起来很方便, 有它的优点, 但是也有它的缺点, 优点是可以根据下标得到和删除元素, 但是很难插入元素
  C语言版本  增加(插入)
  1.在数组末尾添加元素
   int add(int nums[],int *numsSize,int value)//直接放在数组最后面 { nums[*numsSize]=value; *numsSize&#43;=1; return *numsSize; }   2.在数组某位置(下标位置)添加
@@ -54,7 +54,7 @@
       
   <article class="post">
     <header class="post-header">
-      <h1 class ="post-title">数组的用法</h1>
+      <h1 class ="post-title">Array</h1>
       <div class="post-meta">
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
@@ -79,7 +79,7 @@
     <div class="post-content">
       <h1 id="-">记录一下数据结构的操作, 分为两个版本</h1>
 <blockquote>
-<p>数组是最基本的数据结构, 基本上所有的编程语言都自带数组的使用, 数组是线性表的顺序存储结构, 线性表是逻辑上的, 顺序存储是物理上的, 数组使用起来很方便, 有它的优点, 但是也有它的缺点, 优点是可以根据下标得到和删除元素, 但是很难插入元素,</p>
+<p>数组是最基本的数据结构, 基本上所有的编程语言都自带数组的使用, 数组是线性表的顺序存储结构, 线性表是逻辑上的, 顺序存储是物理上的, 数组使用起来很方便, 有它的优点, 但是也有它的缺点, 优点是可以根据下标得到和删除元素, 但是很难插入元素</p>
 </blockquote>
 <h2 id="c">C语言版本</h2>
 <blockquote>
