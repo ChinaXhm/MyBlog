@@ -1,24 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blog</title>
-    <link>https://ChinaXhm.github.io/</link>
-    <description>Recent content on Blog</description>
+    <title>Array on Blog</title>
+    <link>https://ChinaXhm.github.io/tags/array/</link>
+    <description>Recent content in Array on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 13 Dec 2019 23:05:56 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 12 Dec 2019 21:26:24 +0800</lastBuildDate>
     
-	<atom:link href="https://ChinaXhm.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ChinaXhm.github.io/tags/array/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>List</title>
-      <link>https://ChinaXhm.github.io/list/</link>
-      <pubDate>Fri, 13 Dec 2019 23:05:56 +0800</pubDate>
-      
-      <guid>https://ChinaXhm.github.io/list/</guid>
-      <description>链表(C语言) 1.节点定义 typedef char datatype;typedef struct node{node *next;datatype data;}N;//起别名2.创建链表 N *creatlist(){N *head,*p;head=(N *)malloc(sizeof(N));if(head==NULL){printf(&amp;#34;动态内存分配失败&amp;#34;);return 0;}else{//采用尾插法建表 	int n,i;p=head;printf(&amp;#34;请输入节点个数:&amp;#34;);scanf(&amp;#34;%d&amp;#34;,&amp;amp;n);for(i=0;i&amp;lt;n;i++){N *node=(N *)malloc(sizeof(N));node-&amp;gt;next=NULL;printf(&amp;#34;请输入%d个节点的值:&amp;#34;,i);getchar() ;node-&amp;gt;data=getchar();p-&amp;gt;next=node;p=node;}}return head;}3.输出链表 void output(N *head){int length=0;if(head-&amp;gt;next!=NULL){printf(&amp;#34;输出结果为&amp;#34;);N *a=head-&amp;gt;next;	while(a!=NULL) {printf(&amp;#34;%c &amp;#34;,a-&amp;gt;data);a=a-&amp;gt;next;length++;}}else{printf(&amp;#34;空表\n&amp;#34;);}	printf(&amp;#34;\n当前表长为:%d\n&amp;#34;,length);}4.</description>
-    </item>
     
     <item>
       <title>数组的用法</title>

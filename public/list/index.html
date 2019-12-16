@@ -12,10 +12,10 @@
     
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="List"/>
-<meta name="twitter:description" content="链表(C语言) 1.节点定义 typedef int datatype;typedef struct node{node *next;datatype data;}N;//起别名2.初始化链表 N *creatlist()//采用尾插法建表;{N *head=(* N)malloc(sizeof(N)),*p=NULL;//定义头节点 if(head){printf(&#34;动态申请内存失败\n&#34;);}else{int n=0;head-&gt;next=NULL;p=head-&gt;next;printf(&#34;请输入节点数:&#34;);scanf(&#34;%d&#34;,&amp;n);while(n){ N n=(* N)malloc(sizeof(N));n-&gt;next=NULL;p-&gt;next=n;p=n; }}}3.输出链表 void output(N *head){int i=0;N *a=headif(head==NULL){printf(&#34;链表头有误\n&#34;);}while(a-&gt;next!=NULL){i&#43;&#43;;a=a-&gt;next;printf(&#34;%d个元素的值为%d&#34;,i,a-&gt;next);}}"/>
+<meta name="twitter:description" content="链表(C语言) 1.节点定义 typedef char datatype;typedef struct node{node *next;datatype data;}N;//起别名2.创建链表 N *creatlist(){N *head,*p;head=(N *)malloc(sizeof(N));if(head==NULL){printf(&#34;动态内存分配失败&#34;);return 0;}else{//采用尾插法建表 	int n,i;p=head;printf(&#34;请输入节点个数:&#34;);scanf(&#34;%d&#34;,&amp;n);for(i=0;i&lt;n;i&#43;&#43;){N *node=(N *)malloc(sizeof(N));node-&gt;next=NULL;printf(&#34;请输入%d个节点的值:&#34;,i);getchar() ;node-&gt;data=getchar();p-&gt;next=node;p=node;}}return head;}3.输出链表 void output(N *head){int length=0;if(head-&gt;next!=NULL){printf(&#34;输出结果为&#34;);N *a=head-&gt;next;	while(a!=NULL) {printf(&#34;%c &#34;,a-&gt;data);a=a-&gt;next;length&#43;&#43;;}}else{printf(&#34;空表\n&#34;);}	printf(&#34;\n当前表长为:%d\n&#34;,length);}4."/>
 
     <meta property="og:title" content="List" />
-<meta property="og:description" content="链表(C语言) 1.节点定义 typedef int datatype;typedef struct node{node *next;datatype data;}N;//起别名2.初始化链表 N *creatlist()//采用尾插法建表;{N *head=(* N)malloc(sizeof(N)),*p=NULL;//定义头节点 if(head){printf(&#34;动态申请内存失败\n&#34;);}else{int n=0;head-&gt;next=NULL;p=head-&gt;next;printf(&#34;请输入节点数:&#34;);scanf(&#34;%d&#34;,&amp;n);while(n){ N n=(* N)malloc(sizeof(N));n-&gt;next=NULL;p-&gt;next=n;p=n; }}}3.输出链表 void output(N *head){int i=0;N *a=headif(head==NULL){printf(&#34;链表头有误\n&#34;);}while(a-&gt;next!=NULL){i&#43;&#43;;a=a-&gt;next;printf(&#34;%d个元素的值为%d&#34;,i,a-&gt;next);}}" />
+<meta property="og:description" content="链表(C语言) 1.节点定义 typedef char datatype;typedef struct node{node *next;datatype data;}N;//起别名2.创建链表 N *creatlist(){N *head,*p;head=(N *)malloc(sizeof(N));if(head==NULL){printf(&#34;动态内存分配失败&#34;);return 0;}else{//采用尾插法建表 	int n,i;p=head;printf(&#34;请输入节点个数:&#34;);scanf(&#34;%d&#34;,&amp;n);for(i=0;i&lt;n;i&#43;&#43;){N *node=(N *)malloc(sizeof(N));node-&gt;next=NULL;printf(&#34;请输入%d个节点的值:&#34;,i);getchar() ;node-&gt;data=getchar();p-&gt;next=node;p=node;}}return head;}3.输出链表 void output(N *head){int length=0;if(head-&gt;next!=NULL){printf(&#34;输出结果为&#34;);N *a=head-&gt;next;	while(a!=NULL) {printf(&#34;%c &#34;,a-&gt;data);a=a-&gt;next;length&#43;&#43;;}}else{printf(&#34;空表\n&#34;);}	printf(&#34;\n当前表长为:%d\n&#34;,length);}4." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ChinaXhm.github.io/list/" />
 <meta property="article:published_time" content="2019-12-13T23:05:56+08:00" />
@@ -60,7 +60,7 @@
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          1 min read
+          4 min read
         </div><div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
   <title>tag</title>
@@ -71,55 +71,555 @@
     <div class="post-content">
       <h1 id="c">链表(C语言)</h1>
 <h2 id="1">1.节点定义</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">int</span> datatype;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">char</span> datatype;
 <span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> node
 {
     node <span style="color:#f92672">*</span>next;
     datatype data;
 }N;<span style="color:#75715e">//起别名
-</span></code></pre></div><h2 id="2">2.初始化链表</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">    N <span style="color:#f92672">*</span><span style="color:#a6e22e">creatlist</span>()<span style="color:#f92672">/</span><span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">采</span><span style="color:#960050;background-color:#1e0010">用</span><span style="color:#960050;background-color:#1e0010">尾</span><span style="color:#960050;background-color:#1e0010">插</span><span style="color:#960050;background-color:#1e0010">法</span><span style="color:#960050;background-color:#1e0010">建</span><span style="color:#960050;background-color:#1e0010">表</span>;
-    {
-        N <span style="color:#f92672">*</span>head<span style="color:#f92672">=</span>(<span style="color:#f92672">*</span> N)malloc(<span style="color:#66d9ef">sizeof</span>(N)),<span style="color:#f92672">*</span>p<span style="color:#f92672">=</span>NULL;<span style="color:#75715e">//定义头节点
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span>(head)
-        {
-            printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">动态申请内存失败</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
-        }
-        <span style="color:#66d9ef">else</span>
-        {
-            <span style="color:#66d9ef">int</span> n<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
-            head<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">=</span>NULL;
-            p<span style="color:#f92672">=</span>head<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;
-            printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">请输入节点数:</span><span style="color:#e6db74">&#34;</span>);
-            scanf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">&#34;</span>,<span style="color:#f92672">&amp;</span>n);
-            <span style="color:#66d9ef">while</span>(n)
-            {   
-                N n<span style="color:#f92672">=</span>(<span style="color:#f92672">*</span> N)malloc(<span style="color:#66d9ef">sizeof</span>(N));
-                n<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">=</span>NULL;
-                p<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">=</span>n;
-                p<span style="color:#f92672">=</span>n;         
-            }
-
-        }
-
-    }
+</span></code></pre></div><h2 id="2">2.创建链表</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">  N <span style="color:#f92672">*</span><span style="color:#a6e22e">creatlist</span>()
+{
+	N <span style="color:#f92672">*</span>head,<span style="color:#f92672">*</span>p;
+	head<span style="color:#f92672">=</span>(N <span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(N));
+	<span style="color:#66d9ef">if</span>(head<span style="color:#f92672">=</span><span style="color:#f92672">=</span>NULL)
+	{
+		printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">动态内存分配失败</span><span style="color:#e6db74">&#34;</span>);
+		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+	}
+	<span style="color:#66d9ef">else</span>
+	{<span style="color:#75715e">//采用尾插法建表 
+</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">int</span> n,i;
+		p<span style="color:#f92672">=</span>head;
+		printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">请输入节点个数:</span><span style="color:#e6db74">&#34;</span>);
+		scanf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">&#34;</span>,<span style="color:#f92672">&amp;</span>n);
+		<span style="color:#66d9ef">for</span>(i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>n;i<span style="color:#f92672">+</span><span style="color:#f92672">+</span>)
+		{
+			N <span style="color:#f92672">*</span>node<span style="color:#f92672">=</span>(N <span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(N));
+			node<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">=</span>NULL;
+			printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">请输入%d个节点的值:</span><span style="color:#e6db74">&#34;</span>,i);
+			getchar() ;
+			node<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>data<span style="color:#f92672">=</span>getchar();
+			p<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">=</span>node;
+			p<span style="color:#f92672">=</span>node;
+		}
+	}
+	<span style="color:#66d9ef">return</span> head;
+}
 </code></pre></div><h2 id="3">3.输出链表</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">output</span>(N <span style="color:#f92672">*</span>head)
-    {
-        <span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
-        N <span style="color:#f92672">*</span>a<span style="color:#f92672">=</span>head
-        <span style="color:#66d9ef">if</span>(head<span style="color:#f92672">=</span><span style="color:#f92672">=</span>NULL)
-        {
-            printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">链表头有误</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
-        }
-        <span style="color:#66d9ef">while</span>(a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">!</span><span style="color:#f92672">=</span>NULL)
-        {
-            i<span style="color:#f92672">+</span><span style="color:#f92672">+</span>;
-            a<span style="color:#f92672">=</span>a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;
-            printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%d个元素的值为%d</span><span style="color:#e6db74">&#34;</span>,i,a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next);
-        }
-    }
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">output</span>(N <span style="color:#f92672">*</span>head)
+{
+	<span style="color:#66d9ef">int</span> length<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+	<span style="color:#66d9ef">if</span>(head<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">!</span><span style="color:#f92672">=</span>NULL)
+	{
+		printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">输出结果为</span><span style="color:#e6db74">&#34;</span>);
+		N <span style="color:#f92672">*</span>a<span style="color:#f92672">=</span>head<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;	
+		<span style="color:#66d9ef">while</span>(a<span style="color:#f92672">!</span><span style="color:#f92672">=</span>NULL) 
+		{
+			printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%c  </span><span style="color:#e6db74">&#34;</span>,a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>data);
+			a<span style="color:#f92672">=</span>a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;
+			length<span style="color:#f92672">+</span><span style="color:#f92672">+</span>;
+		}
+	}
+	<span style="color:#66d9ef">else</span>
+	{
+		printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">空表</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+	}	
+	printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">当前表长为:%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,length);
+}
+</code></pre></div><h3 id="4">4.插入元素</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">insert</span>(N <span style="color:#f92672">*</span>head,datatype x,<span style="color:#66d9ef">int</span> local) 
+{
+	N <span style="color:#f92672">*</span>a<span style="color:#f92672">=</span>head,<span style="color:#f92672">*</span>p<span style="color:#f92672">=</span>NULL;
+	<span style="color:#66d9ef">int</span> i;
+	<span style="color:#66d9ef">if</span>(head<span style="color:#f92672">!</span><span style="color:#f92672">=</span>NULL)
+	{
+			<span style="color:#75715e">//先将a指针指向插入位置的节点;
+</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">for</span>(i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>local;i<span style="color:#f92672">+</span><span style="color:#f92672">+</span>)
+		{
+			a<span style="color:#f92672">=</span>a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;
+		}
+		<span style="color:#75715e">//需要判断插入位置是否为表尾;
+</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">if</span>(listlength(head)<span style="color:#f92672">&gt;</span><span style="color:#f92672">=</span>local)
+		{
+			<span style="color:#66d9ef">if</span>(a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">!</span><span style="color:#f92672">=</span>NULL) 
+			{
+				
+				p<span style="color:#f92672">=</span>a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;
+				N <span style="color:#f92672">*</span>n<span style="color:#f92672">=</span>(N <span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(N));
+				n<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">=</span>p;
+				n<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>data<span style="color:#f92672">=</span>x;
+				a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">=</span>n;	
+			}
+			<span style="color:#66d9ef">else</span>
+			{
+				N <span style="color:#f92672">*</span>n<span style="color:#f92672">=</span>(N <span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(N));
+				n<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">=</span>NULL;
+				n<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>data<span style="color:#f92672">=</span>x;
+				a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">=</span>n;
+			}
+			<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+		}	
+		<span style="color:#66d9ef">else</span>
+		{
+			printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">错误:超出链表长度</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+		}
+	}
+	<span style="color:#66d9ef">else</span>
+	{
+		printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">错误:头地址有误</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+	}	
+}
+</code></pre></div><h3 id="5">5.删除元素</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">nodedelete</span>(N <span style="color:#f92672">*</span>head,<span style="color:#66d9ef">int</span> local) 
+{
+		N <span style="color:#f92672">*</span>a<span style="color:#f92672">=</span>head,<span style="color:#f92672">*</span>p<span style="color:#f92672">=</span>NULL;
+	<span style="color:#66d9ef">int</span> i;
+	<span style="color:#66d9ef">if</span>(head<span style="color:#f92672">!</span><span style="color:#f92672">=</span>NULL)
+	{
+			<span style="color:#75715e">//先将a指针指向删除位置之前的节点;
+</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">for</span>(i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>local<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;i<span style="color:#f92672">+</span><span style="color:#f92672">+</span>)
+		{
+			a<span style="color:#f92672">=</span>a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;
+		}
+		<span style="color:#66d9ef">if</span>(listlength(head)<span style="color:#f92672">&gt;</span><span style="color:#f92672">=</span>local)
+		{
+			<span style="color:#75715e">//需要判断删除位置是否为表尾;
+</span><span style="color:#75715e"></span>			<span style="color:#66d9ef">if</span>(a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">!</span><span style="color:#f92672">=</span>NULL) 
+			{
+				p<span style="color:#f92672">=</span>a;
+				p<span style="color:#f92672">=</span>p<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;
+				a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">=</span>p<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;
+				printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">删除元素为:%c </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,p<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>data);
+				free(p);
+			}
+			<span style="color:#66d9ef">else</span>
+			{
+				printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">删除元素为:%c </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>data);
+				free(a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next);
+				a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">=</span>NULL;
+			}
+			<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+		}
+		<span style="color:#66d9ef">else</span>
+		{
+			printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">错误:超出链表长度</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+			<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+		}
+	}
+	<span style="color:#66d9ef">else</span>
+	{
+		printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">错误:头地址有误</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+	}
+}
+</code></pre></div><h3 id="6">6.修改元素</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">update</span>(N <span style="color:#f92672">*</span>head,datatype x,<span style="color:#66d9ef">int</span> local) 
+{
+		N <span style="color:#f92672">*</span>a<span style="color:#f92672">=</span>head,<span style="color:#f92672">*</span>p<span style="color:#f92672">=</span>NULL;
+	<span style="color:#66d9ef">int</span> i;
+	<span style="color:#66d9ef">if</span>(head<span style="color:#f92672">!</span><span style="color:#f92672">=</span>NULL)
+	{
+		<span style="color:#66d9ef">for</span>(i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>local;i<span style="color:#f92672">+</span><span style="color:#f92672">+</span>)
+		{
+			a<span style="color:#f92672">=</span>a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;
+		}
+		<span style="color:#66d9ef">if</span>(listlength(head)<span style="color:#f92672">&gt;</span><span style="color:#f92672">=</span>local)
+		{
+			printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">修改位置为:%d修改前元素的值为:%c</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,local,a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>data);
+			a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>data<span style="color:#f92672">=</span>x;
+			printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">修改成功,修改后的值为:%c</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>data);
+		}
+		<span style="color:#66d9ef">else</span>
+		{
+			printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">错误:超出链表长度</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+			<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+		}
+	}
+	<span style="color:#66d9ef">else</span>
+	{
+		printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">错误:头地址有误</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+	}
+}
+</code></pre></div><h3 id="8">8.链表排序(按值排序)</h3>
+<h4 id="11">(1).修改值</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">//先计算链表长度
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">Sortlist</span>(N <span style="color:#f92672">*</span>head)
+{
+	<span style="color:#66d9ef">int</span> length<span style="color:#f92672">=</span>length(head),j,i,x;
+	<span style="color:#75715e">//冒泡排序
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">for</span>(i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>length;i<span style="color:#f92672">+</span><span style="color:#f92672">+</span>)
+	{
+		<span style="color:#66d9ef">for</span>(j<span style="color:#f92672">=</span>i;j<span style="color:#f92672">&lt;</span>length;j<span style="color:#f92672">+</span><span style="color:#f92672">+</span>)
+		{
 
+		}
+	}
+
+
+
+}
+</code></pre></div><h4 id="21">(2).修改节点位置</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sortLIst</span>(N <span style="color:#f92672">*</span>head,<span style="color:#66d9ef">int</span> isture)
+{
+	N <span style="color:#f92672">*</span>left<span style="color:#f92672">=</span>head<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next,<span style="color:#f92672">*</span>right<span style="color:#f92672">=</span>head<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;<span style="color:#75715e">//将节点分别指向第一个实际节点和第二个实际节点
+</span><span style="color:#75715e"></span>	N <span style="color:#f92672">*</span>zhongjian<span style="color:#f92672">=</span>head;
+	N <span style="color:#f92672">*</span>jiaohuan<span style="color:#f92672">=</span>NULL;
+	N <span style="color:#f92672">*</span>s<span style="color:#f92672">=</span>head;
+		
+	<span style="color:#75715e">//采用冒泡的思想;
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">//遍历两边链表
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">//从大到小
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// 指针变量指向链表循序   zhongjian     left     right ;
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">//emmmm,遗漏了问题，为了冒泡的效率，需要求出链表长度;
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">int</span> length<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>,i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>,j<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+	<span style="color:#66d9ef">while</span>(s<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">!</span><span style="color:#f92672">=</span>NULL)
+	{
+		length<span style="color:#f92672">+</span><span style="color:#f92672">+</span>;
+		s<span style="color:#f92672">=</span>s<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;
+	}
+	<span style="color:#66d9ef">if</span>(isture)<span style="color:#75715e">//判断排序方式,真为从大到小
+</span><span style="color:#75715e"></span>	{
+		<span style="color:#66d9ef">for</span>(;i<span style="color:#f92672">&lt;</span>length<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;i<span style="color:#f92672">+</span><span style="color:#f92672">+</span>)
+		{<span style="color:#75715e">//外层循环	
+</span><span style="color:#75715e"></span>			N <span style="color:#f92672">*</span>left<span style="color:#f92672">=</span>head<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next,<span style="color:#f92672">*</span>right<span style="color:#f92672">=</span>head<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;
+			N <span style="color:#f92672">*</span>zhongjian<span style="color:#f92672">=</span>head;
+			<span style="color:#66d9ef">for</span>(j<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;j<span style="color:#f92672">&lt;</span>length<span style="color:#f92672">-</span>i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;j<span style="color:#f92672">+</span><span style="color:#f92672">+</span>)
+			{
+			
+						<span style="color:#66d9ef">if</span>(left<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>data<span style="color:#f92672">&lt;</span><span style="color:#f92672">=</span>right<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>data)
+					{
+						<span style="color:#75715e">//改变指针
+</span><span style="color:#75715e"></span>						<span style="color:#75715e">//(首先将左节点的直接前驱节点)的指针域直接指向右节点;
+</span><span style="color:#75715e"></span>						zhongjian<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">=</span>right;
+						<span style="color:#75715e">//再将左节点的指针 指向 （右节点指向的节点）
+</span><span style="color:#75715e"></span>						left<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">=</span>right<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;
+						<span style="color:#75715e">//再将右节点的指针指向左节点
+</span><span style="color:#75715e"></span>						right<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">=</span>left;
+						jiaohuan<span style="color:#f92672">=</span>left;
+						left<span style="color:#f92672">=</span>right;
+						right<span style="color:#f92672">=</span>jiaohuan;	
+							<span style="color:#75715e">//交换之后左右指针的位置需要调换回来;
+</span><span style="color:#75715e"></span>					}
+					<span style="color:#75715e">//交换之后需要将指针后移
+</span><span style="color:#75715e"></span>						left<span style="color:#f92672">=</span>left<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;
+						right<span style="color:#f92672">=</span>right<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;
+						zhongjian<span style="color:#f92672">=</span>zhongjian<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;			
+			}
+		}	
+	}
+	<span style="color:#66d9ef">else</span>
+	{
+			<span style="color:#66d9ef">for</span>(;i<span style="color:#f92672">&lt;</span>length<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;i<span style="color:#f92672">+</span><span style="color:#f92672">+</span>)
+		{<span style="color:#75715e">//外层循环	
+</span><span style="color:#75715e"></span>			N <span style="color:#f92672">*</span>left<span style="color:#f92672">=</span>head<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next,<span style="color:#f92672">*</span>right<span style="color:#f92672">=</span>head<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;
+			N <span style="color:#f92672">*</span>zhongjian<span style="color:#f92672">=</span>head;
+			<span style="color:#66d9ef">for</span>(j<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;j<span style="color:#f92672">&lt;</span>length<span style="color:#f92672">-</span>i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;j<span style="color:#f92672">+</span><span style="color:#f92672">+</span>)
+			{
+						<span style="color:#66d9ef">if</span>(left<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>data<span style="color:#f92672">&gt;</span><span style="color:#f92672">=</span>right<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>data)
+					{
+						<span style="color:#75715e">//改变指针
+</span><span style="color:#75715e"></span>						<span style="color:#75715e">//(首先将左节点的直接前驱节点)的指针域直接指向右节点;
+</span><span style="color:#75715e"></span>						zhongjian<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">=</span>right;
+						<span style="color:#75715e">//再将左节点的指针 指向 （右节点指向的节点）
+</span><span style="color:#75715e"></span>						left<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">=</span>right<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;
+						<span style="color:#75715e">//再将右节点的指针指向左节点
+</span><span style="color:#75715e"></span>						right<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">=</span>left;
+						jiaohuan<span style="color:#f92672">=</span>left;
+						left<span style="color:#f92672">=</span>right;
+						right<span style="color:#f92672">=</span>jiaohuan;		
+							<span style="color:#75715e">//交换之后左右指针的位置需要调换回来;
+</span><span style="color:#75715e"></span>					}
+					<span style="color:#75715e">//交换之后需要将指针后移
+</span><span style="color:#75715e"></span>						left<span style="color:#f92672">=</span>left<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;
+						right<span style="color:#f92672">=</span>right<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;
+						zhongjian<span style="color:#f92672">=</span>zhongjian<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;
+			}
+		}	
+	
+	}			
+}
+</code></pre></div><h3 id="heading">完整(本人菜鸟，仅供参考)</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&#34;stdio.h&#34; </span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&#34;stdlib.h&#34;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">char</span> datatype;
+<span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> node{
+	node <span style="color:#f92672">*</span>next;
+	datatype data;
+}N;
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">output</span>(N <span style="color:#f92672">*</span>head)
+{
+	<span style="color:#66d9ef">int</span> length<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+	<span style="color:#66d9ef">if</span>(head<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">!</span><span style="color:#f92672">=</span>NULL)
+	{
+		printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">输出结果为</span><span style="color:#e6db74">&#34;</span>);
+		N <span style="color:#f92672">*</span>a<span style="color:#f92672">=</span>head<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;	
+		<span style="color:#66d9ef">while</span>(a<span style="color:#f92672">!</span><span style="color:#f92672">=</span>NULL) 
+		{
+			printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%c  </span><span style="color:#e6db74">&#34;</span>,a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>data);
+			a<span style="color:#f92672">=</span>a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;
+			length<span style="color:#f92672">+</span><span style="color:#f92672">+</span>;
+		}
+	}
+	<span style="color:#66d9ef">else</span>
+	{
+		printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">空表</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+	}	
+	printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">当前表长为:%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,length);
+}
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">listlength</span>(N <span style="color:#f92672">*</span>head)
+{
+	<span style="color:#66d9ef">int</span> length<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+	N <span style="color:#f92672">*</span>a<span style="color:#f92672">=</span>head<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;
+	<span style="color:#66d9ef">while</span>(a<span style="color:#f92672">!</span><span style="color:#f92672">=</span>NULL)
+	{
+		length<span style="color:#f92672">+</span><span style="color:#f92672">+</span>;
+		a<span style="color:#f92672">=</span>a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;	
+	}
+	<span style="color:#66d9ef">return</span> length;
+}
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">insert</span>(N <span style="color:#f92672">*</span>head,datatype x,<span style="color:#66d9ef">int</span> local) 
+{
+	N <span style="color:#f92672">*</span>a<span style="color:#f92672">=</span>head,<span style="color:#f92672">*</span>p<span style="color:#f92672">=</span>NULL;
+	<span style="color:#66d9ef">int</span> i;
+	<span style="color:#66d9ef">if</span>(head<span style="color:#f92672">!</span><span style="color:#f92672">=</span>NULL)
+	{
+			<span style="color:#75715e">//先将a指针指向插入位置的节点;
+</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">for</span>(i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>local;i<span style="color:#f92672">+</span><span style="color:#f92672">+</span>)
+		{
+			a<span style="color:#f92672">=</span>a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;
+		}
+		<span style="color:#75715e">//需要判断插入位置是否为表尾;
+</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">if</span>(listlength(head)<span style="color:#f92672">&gt;</span><span style="color:#f92672">=</span>local)
+		{
+			<span style="color:#66d9ef">if</span>(a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">!</span><span style="color:#f92672">=</span>NULL) 
+			{
+				
+				p<span style="color:#f92672">=</span>a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;
+				N <span style="color:#f92672">*</span>n<span style="color:#f92672">=</span>(N <span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(N));
+				n<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">=</span>p;
+				n<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>data<span style="color:#f92672">=</span>x;
+				a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">=</span>n;	
+			}
+			<span style="color:#66d9ef">else</span>
+			{
+				N <span style="color:#f92672">*</span>n<span style="color:#f92672">=</span>(N <span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(N));
+				n<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">=</span>NULL;
+				n<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>data<span style="color:#f92672">=</span>x;
+				a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">=</span>n;
+			}
+			<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+		}	
+		<span style="color:#66d9ef">else</span>
+		{
+			printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">错误:超出链表长度</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+		}
+	}
+	<span style="color:#66d9ef">else</span>
+	{
+		printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">错误:头地址有误</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+	}	
+}
+N <span style="color:#f92672">*</span><span style="color:#a6e22e">creatlist</span>()
+{
+	N <span style="color:#f92672">*</span>head,<span style="color:#f92672">*</span>p;
+	head<span style="color:#f92672">=</span>(N <span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(N));
+	<span style="color:#66d9ef">if</span>(head<span style="color:#f92672">=</span><span style="color:#f92672">=</span>NULL)
+	{
+		printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">动态内存分配失败</span><span style="color:#e6db74">&#34;</span>);
+		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+	}
+	<span style="color:#66d9ef">else</span>
+	{<span style="color:#75715e">//采用尾插法建表 
+</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">int</span> n,i;
+		p<span style="color:#f92672">=</span>head;
+		printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">请输入节点个数:</span><span style="color:#e6db74">&#34;</span>);
+		scanf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">&#34;</span>,<span style="color:#f92672">&amp;</span>n);
+		<span style="color:#66d9ef">for</span>(i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>n;i<span style="color:#f92672">+</span><span style="color:#f92672">+</span>)
+		{
+			N <span style="color:#f92672">*</span>node<span style="color:#f92672">=</span>(N <span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(N));
+			node<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">=</span>NULL;
+			printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">请输入%d个节点的值:</span><span style="color:#e6db74">&#34;</span>,i);
+			getchar() ;
+			node<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>data<span style="color:#f92672">=</span>getchar();
+			p<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">=</span>node;
+			p<span style="color:#f92672">=</span>node;
+		}
+	}
+	<span style="color:#66d9ef">return</span> head;
+}
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">nodedelete</span>(N <span style="color:#f92672">*</span>head,<span style="color:#66d9ef">int</span> local) 
+{
+		N <span style="color:#f92672">*</span>a<span style="color:#f92672">=</span>head,<span style="color:#f92672">*</span>p<span style="color:#f92672">=</span>NULL;
+	<span style="color:#66d9ef">int</span> i;
+	<span style="color:#66d9ef">if</span>(head<span style="color:#f92672">!</span><span style="color:#f92672">=</span>NULL)
+	{
+			<span style="color:#75715e">//先将a指针指向删除位置之前的节点;
+</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">for</span>(i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>local<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;i<span style="color:#f92672">+</span><span style="color:#f92672">+</span>)
+		{
+			a<span style="color:#f92672">=</span>a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;
+		}
+		<span style="color:#66d9ef">if</span>(listlength(head)<span style="color:#f92672">&gt;</span><span style="color:#f92672">=</span>local)
+		{
+			<span style="color:#75715e">//需要判断删除位置是否为表尾;
+</span><span style="color:#75715e"></span>			<span style="color:#66d9ef">if</span>(a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">!</span><span style="color:#f92672">=</span>NULL) 
+			{
+				p<span style="color:#f92672">=</span>a;
+				p<span style="color:#f92672">=</span>p<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;
+				a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">=</span>p<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;
+				printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">删除元素为:%c </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,p<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>data);
+				free(p);
+			}
+			<span style="color:#66d9ef">else</span>
+			{
+				printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">删除元素为:%c </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>data);
+				free(a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next);
+				a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">=</span>NULL;
+			}
+			<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+		}
+		<span style="color:#66d9ef">else</span>
+		{
+			printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">错误:超出链表长度</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+			<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+		}
+	}
+	<span style="color:#66d9ef">else</span>
+	{
+		printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">错误:头地址有误</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+	}
+}
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">update</span>(N <span style="color:#f92672">*</span>head,datatype x,<span style="color:#66d9ef">int</span> local) 
+{
+		N <span style="color:#f92672">*</span>a<span style="color:#f92672">=</span>head,<span style="color:#f92672">*</span>p<span style="color:#f92672">=</span>NULL;
+	<span style="color:#66d9ef">int</span> i;
+	<span style="color:#66d9ef">if</span>(head<span style="color:#f92672">!</span><span style="color:#f92672">=</span>NULL)
+	{
+		<span style="color:#66d9ef">for</span>(i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>local;i<span style="color:#f92672">+</span><span style="color:#f92672">+</span>)
+		{
+			a<span style="color:#f92672">=</span>a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;
+		}
+		<span style="color:#66d9ef">if</span>(listlength(head)<span style="color:#f92672">&gt;</span><span style="color:#f92672">=</span>local)
+		{
+			printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">修改位置为:%d修改前元素的值为:%c</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,local,a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>data);
+			a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>data<span style="color:#f92672">=</span>x;
+			printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">修改成功,修改后的值为:%c</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,a<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>data);
+		}
+		<span style="color:#66d9ef">else</span>
+		{
+			printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">错误:超出链表长度</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+			<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+		}
+	}
+	<span style="color:#66d9ef">else</span>
+	{
+		printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">错误:头地址有误</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+	}
+}
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main_meun</span>()
+{
+	printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">------------------------</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+	printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">1.创建链表</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+	printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">2.输入链表</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+	printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">3.插入元素(前插位置输入0)</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+	printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">4.删除元素</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+	printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">5.修改元素</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+	printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">6.链表排序(默认从小到大,仅交换值)</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+	printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">0.退出</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+	printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">请输入菜单号1~5</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+	printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">------------------------</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+}
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sort</span>(N <span style="color:#f92672">*</span>head)
+{
+		<span style="color:#75715e">//采用双指针,采用冒泡排序的方法
+</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">if</span>(head<span style="color:#f92672">!</span><span style="color:#f92672">=</span>NULL)
+		{
+			<span style="color:#66d9ef">if</span>(listlength(head)<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">1</span>)
+			{
+					N <span style="color:#f92672">*</span>p<span style="color:#f92672">=</span>head<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next,<span style="color:#f92672">*</span>q;
+				<span style="color:#66d9ef">while</span>(p<span style="color:#f92672">!</span><span style="color:#f92672">=</span>NULL) <span style="color:#75715e">//外层循环
+</span><span style="color:#75715e"></span>				{
+					q<span style="color:#f92672">=</span>head<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;
+					<span style="color:#66d9ef">while</span>(q<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">!</span><span style="color:#f92672">=</span>NULL)
+					{
+						<span style="color:#66d9ef">if</span>(q<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>data<span style="color:#f92672">&gt;</span><span style="color:#f92672">=</span>q<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>data)
+						{
+							datatype x<span style="color:#f92672">=</span>q<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>data;	
+							q<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>data<span style="color:#f92672">=</span>q<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>data;
+							q<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>data<span style="color:#f92672">=</span>x;
+						}
+						q<span style="color:#f92672">=</span>q<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;	
+					}
+					p<span style="color:#f92672">=</span>p<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next;
+				}
+			}
+			<span style="color:#66d9ef">else</span>
+			{
+				printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">空表或表长为1,不需要排序</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+			}
+		}
+		<span style="color:#66d9ef">else</span>
+		{
+			printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">错误:头地址有误</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+		}
+	
+}
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+	<span style="color:#66d9ef">int</span> meun<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;
+		N <span style="color:#f92672">*</span>head<span style="color:#f92672">=</span>NULL;
+		head<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>next<span style="color:#f92672">=</span>NULL;
+	<span style="color:#66d9ef">while</span>(meun)
+	{
+		main_meun();
+		scanf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">&#34;</span>,<span style="color:#f92672">&amp;</span>meun);
+			datatype x<span style="color:#f92672">=</span>NULL;
+			<span style="color:#66d9ef">int</span> n<span style="color:#f92672">=</span>NULL;
+		<span style="color:#66d9ef">switch</span>(meun)
+		{
+			getchar();
+			<span style="color:#66d9ef">case</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">:</span>
+				<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+			<span style="color:#66d9ef">break</span>;
+			<span style="color:#66d9ef">case</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span>
+			head<span style="color:#f92672">=</span>creatlist();
+			<span style="color:#66d9ef">break</span>;
+			<span style="color:#66d9ef">case</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">:</span>
+				output(head);
+				printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+			<span style="color:#66d9ef">break</span>;
+			<span style="color:#66d9ef">case</span> <span style="color:#ae81ff">3</span><span style="color:#f92672">:</span>
+				printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">请输入插入位置:</span><span style="color:#e6db74">&#34;</span>);
+				scanf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">&#34;</span>,<span style="color:#f92672">&amp;</span>n);
+				getchar();
+				printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">请输入插入的值:</span><span style="color:#e6db74">&#34;</span>);
+				scanf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%c</span><span style="color:#e6db74">&#34;</span>,<span style="color:#f92672">&amp;</span>x);
+				insert(head,x,n);
+			<span style="color:#66d9ef">break</span>;
+			<span style="color:#66d9ef">case</span> <span style="color:#ae81ff">4</span><span style="color:#f92672">:</span>
+				printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">请输入删除位置:</span><span style="color:#e6db74">&#34;</span>);
+				scanf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">&#34;</span>,<span style="color:#f92672">&amp;</span>n);
+				nodedelete(head,n);
+			<span style="color:#66d9ef">break</span>;
+			<span style="color:#66d9ef">case</span> <span style="color:#ae81ff">5</span><span style="color:#f92672">:</span>
+				printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">请输入修改位置:</span><span style="color:#e6db74">&#34;</span>);
+				scanf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">&#34;</span>,<span style="color:#f92672">&amp;</span>n);
+				getchar();
+				printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">请输入修改的值:</span><span style="color:#e6db74">&#34;</span>);
+				scanf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%c</span><span style="color:#e6db74">&#34;</span>,<span style="color:#f92672">&amp;</span>x);
+				update(head,x,n);
+			<span style="color:#66d9ef">break</span>;
+			<span style="color:#66d9ef">case</span> <span style="color:#ae81ff">6</span><span style="color:#f92672">:</span>
+				sort(head);
+			<span style="color:#66d9ef">break</span>;
+		}
+	}
+}
 </code></pre></div>
     </div>
     <div class="post-footer">

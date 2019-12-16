@@ -1,5 +1,5 @@
 ---
-title: "数组的用法"
+title: "Array"
 date: 2019-12-12T21:26:24+08:00
 draft: true
 tags: ["数据结构", "Array"]
