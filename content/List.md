@@ -574,3 +574,156 @@ int main()
 	}
 }
 ```
+
+
+## Golang
+
+> 还没有写完
+
+```golang
+package main
+
+import "fmt"
+
+type Element int64
+// 节点定义
+type ListNode struct {
+	data Element		// 首节点中data表示为链表的长度
+	next *ListNode
+}
+
+// 函数接口
+type List interface {
+	Add(head *ListNode, new Element)				// 添加元素
+	Delete(head *ListNode, index int) Element		// 删除指定节点, 并返回删除节点的值
+	Insert(head *ListNode, index Element, data Element)	// 插入指定节点
+	GetLength(head *ListNode) Element				// 获取链表长度
+	Search(head *ListNode, data Element) int		// 查询元素所在位置
+	GetData(head *ListNode, index int) Element		// 获取指定位置的元素
+}
+
+// 添加元素
+func Add(head *ListNode, new Element) {
+	point := head
+
+	// 找到尾节点
+	for nil != point.next {
+		point = point.next
+	}
+
+	var node ListNode
+	node.data = new
+	point.next = &node
+
+	head.data++
+}
+
+// 删除指定节点, 并返回删除节点的值
+func Delete(head *ListNode, index int) Element {
+	// index是以0为起始
+	point := head
+
+	// 找到要删除的下标的前一个
+	for nil != point.next && 0 < index {
+		point = point.next
+		index--
+	}
+
+	data := point.next.data
+	point.next.data = 0
+	point.next = point.next.next
+
+	head.data--
+	return data
+}
+
+// 插入指定节点
+func Insert(head *ListNode, index Element, data Element) {
+
+	if 0 > index || head.data < index {
+		fmt.Println("Please check index")
+	}
+	point := head
+
+	// 找到指定位置的前一个节点
+	for nil != point.next && 0 < index {
+		point = point.next
+		index--
+	}
+
+	var node ListNode
+	node.data = data
+	node.next = point.next.next
+	point.next = &node
+
+	head.data++
+}
+
+// 获取链表长度
+func GetLength(head *ListNode) Element {
+	point := head
+	head.data = 0
+	// 头节点不算在内
+
+	for nil != point.next {
+		point = point.next
+		head.data++
+	}
+
+	return head.data
+}
+
+// 查询元素所在位置
+func Search(head *ListNode, data Element) int {
+	point := head
+	num := -1
+
+	for data != point.data {
+		point = point.next
+		num++
+	}
+
+	return num
+}
+
+// 获取指定位置的元素
+func GetData(head *ListNode, index int) Element {
+	point := head
+
+	for nil != point.next && 0 < index {
+		point = point.next
+		index--
+	}
+
+	return point.data
+}
+
+func Traverse(head *ListNode) {
+    point := head
+    for point.next != nil {
+        fmt.Println(point.next.data)
+        point = point.next
+    }
+	fmt.Println("Traverse OK!")
+	fmt.Println("\n\n")
+}
+
+
+func main() {
+	var head ListNode = ListNode{data: 0, next: nil}
+	var Array []Element = []Element {1, 2, 3, 4, 5, 6, 7, 8}
+	for _, v := range Array {
+		Add(&head, v)
+	}
+	Traverse(&head)
+
+	fmt.Println(Delete(&head, 4))	// 531
+	Traverse(&head)
+	fmt.Println(Search(&head, 2))
+	Insert(&head, 6, 124123)
+	Traverse(&head)
+	fmt.Println(GetData(&head, 6))
+	fmt.Println(GetLength(&head))
+}
+
+```
