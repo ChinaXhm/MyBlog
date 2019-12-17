@@ -44,3 +44,14 @@ int insert(int nums[],int *numsSize,int index,int value)//指定插入下标位�
 ---
 
 ## Golang
+
+> 在数组中间某位置添加元素
+
+```go
+
+package main
+import "fmt"
+func main() {
+	
+}
+```
