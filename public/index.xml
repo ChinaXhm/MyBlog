@@ -6,10 +6,19 @@
     <description>Recent content on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 13 Dec 2019 23:05:56 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 22 Dec 2019 00:07:20 +0800</lastBuildDate>
     
 	<atom:link href="https://ChinaXhm.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CircylarLinkedList</title>
+      <link>https://ChinaXhm.github.io/circylarlinkedlist/</link>
+      <pubDate>Sun, 22 Dec 2019 00:07:20 +0800</pubDate>
+      
+      <guid>https://ChinaXhm.github.io/circylarlinkedlist/</guid>
+      <description>单向循环链表 Golang /** * Golang版循环链表 * 在循环链表中, 头节点不再特殊, 其值不再为长度, 索引不再为-1, 而是从0开始计数 */ package main import &amp;#34;fmt&amp;#34; type Element int64 // 节点定义 type ListNode struct { data Element	// 头节点中data表示为链表的长度 	next *ListNode } // 函数接口 type List interface { Add(head *ListNode, new Element)	// 链表尾部添加元素 	Delete(head *ListNode, index int) Element	// 删除指定节点, 并返回删除节点的值 	Insert(head *ListNode, index Element, data Element)	// 插入指定节点 	GetLength(head *ListNode) Element	// 获取链表长度 	Search(head *ListNode, data Element) int	// 查询元素所在位置 	GetData(head *ListNode, index int) Element	// 获取指定位置的元素 } func Add(head *ListNode, new Element) { if nil == head.</description>
+    </item>
     
     <item>
       <title>List</title>
